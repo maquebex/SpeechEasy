@@ -1,0 +1,119 @@
+<html>
+<head>
+  <title>One-shot recognize using model en-US_BroadbandModel </title>
+  <link rel="stylesheet" type="text/css" href="https://stream.watsonplatform.net/speech-to-text/api/v1/static/stylesheets/base.css">
+  <link rel="icon" type="image/png"  href="https://stream.watsonplatform.net/speech-to-text/api/v1/static/chuckBrain.png" />
+</head>
+<body>
+<img src="https://stream.watsonplatform.net/speech-to-text/api/v1/static/brains.jpg" width="200px" style="float:right;"/>
+
+  <h2>Sessionless recognize</h2>
+This URL can begin receiving a new one-shot (sessionless) submission in either chunked (streaming) or non-chunked mode. 
+
+Please see the API doc for correct ways of submitting data, requesting particular results from the engine, and detecting the engine readiness.
+
+
+<hr>
+<h3>Send a HTTP Request</h3>
+
+<form id="RequestForm">
+	<p>Set the request values and send the request.</p>
+	<label for="Method">Method
+			<select name="Method">
+			<option value="POST" >POST</option>
+			<option value="PUT">PUT</option>
+			<option value="DELETE" >DELETE</option>
+			<option value="GET">GET</option>
+			<option value="HEAD">HEAD</option>
+			<option value="TRACE">TRACE</option>
+			</select>
+	</label>
+	<label for="RequestURI">URI <input id="URI" type="text" size="104" value="https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?timestamps=true&continuous=true&word_alternatives_threshold=0.9"> </label>
+	<br>
+        <label for="RequestData">Data <small>(JSON)</small><br>
+        <textarea rows="15" cols="100" id="RequestData">{
+   "part_content_type": "audio/flac", 
+   "preserveAdaptation": "PULSE", 
+   "word_confidence": false, 
+   "continuous": false, 
+   "inactivity_timeout": 30, 
+   "keywords_threshold": null, 
+   "debugStats": false, 
+   "timestamps": false, 
+   "keywords": [], 
+   "customModelPath": null, 
+   "max_alternatives": 1, 
+   "profanity_filter": true, 
+   "preserveCustomModel": false, 
+   "smart_formatting": false, 
+   "word_alternatives_threshold": null
+}</textarea>
+        </label>
+        <br>
+            <p>
+            Audio File(s):  <input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" size=80/>
+            </p>
+            <button type="button" id=submitMultiPartBtn>Submit JSON Data and files with content-type multipart/form-data</button>
+            <small>Note: not all browsers support this. See <a href="http://caniuse.com/xhr2">here</a> if yours does.</small>
+ 
+</form>
+
+<h3>Last server response code:
+<div class="serverResponse">
+<em id="ResponseCode">none yet</em>
+</div>
+</h3>
+<h3>Last server response body:</h3>
+<div class="serverResponse">
+<em id="ResponseText">none yet</em>
+</div>
+
+<script type="text/javascript">
+	function setMethodDefault(val){
+		document.forms['RequestForm'].Method.value=val;
+	}
+	window.onload=setMethodDefault("POST");
+
+
+	var request = new XMLHttpRequest();
+
+	function reqStateChange(){
+		if (request.readyState == 4 || request.readyState == 3 ) {
+			//with readyState=3 even intermediate results are printed as the server sends them.
+			document.getElementById('ResponseCode').innerHTML = request.status+" "+request.statusText;
+			document.getElementById('ResponseText').innerHTML = request.responseText
+		}
+	}
+        document.forms['RequestForm'].submitMultiPartBtn.onclick = function() {
+            try {
+                frm=document.forms['RequestForm']
+                var s = JSON.parse(frm.elements['RequestData'].value);
+                formData = new FormData();
+                formData.append('jsonDescription',JSON.stringify(s));
+                fileArr=frm.filesToUpload.files
+                for (var x = 0; x < fileArr.length; x++) {
+                  formData.append(fileArr[x].name,fileArr[x]);
+                }
+                
+                document.getElementById('ResponseCode').innerHTML = "none yet";
+                document.getElementById('ResponseText').innerHTML = "none yet";
+
+                request.onreadystatechange = reqStateChange;
+                request.open(frm.Method.value, frm.URI.value, true);
+                request.send(formData);
+            }
+            catch (e) {
+                alert('An error occured: '+e);
+            }
+            return false;
+        }
+</script>
+
+<hr>
+Prettily formatted json as returned by a GET on the <a href="https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?accept=application/json">json version</a> of this page:
+<pre>
+{}
+</pre>
+
+</body>
+</html>

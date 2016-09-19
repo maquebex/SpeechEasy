@@ -1,0 +1,198 @@
+{
+    "timestamp": "2016-08-14T17:22:48+00:00",
+    "results": [
+      {
+        "word_alternatives": [],
+        "alternatives": [
+          {
+            "timestamps": [
+              [
+                "front",
+                "0.04",
+                "0.42"
+              ],
+              [
+                "left",
+                "0.42",
+                "0.9"
+              ]
+            ],
+            "confidence": 0.74,
+            "transcript": "front left "
+          }
+        ],
+        "final": true
+      },
+      {
+        "word_alternatives": [
+          {
+            "start_time": 1.67,
+            "alternatives": [
+              {
+                "confidence": 0.93,
+                "word": "center"
+              }
+            ],
+            "end_time": 2.29
+          }
+        ],
+        "alternatives": [
+          {
+            "timestamps": [
+              [
+                "center",
+                "1.67",
+                "2.29"
+              ]
+            ],
+            "confidence": 0.988,
+            "transcript": "center "
+          }
+        ],
+        "final": true
+      },
+      {
+        "word_alternatives": [
+          {
+            "start_time": 3.25,
+            "alternatives": [
+              {
+                "confidence": 0.9755,
+                "word": "front"
+              }
+            ],
+            "end_time": 3.59
+          },
+          {
+            "start_time": 3.59,
+            "alternatives": [
+              {
+                "confidence": 0.9543,
+                "word": "right"
+              }
+            ],
+            "end_time": 3.97
+          }
+        ],
+        "alternatives": [
+          {
+            "timestamps": [
+              [
+                "front",
+                "3.25",
+                "3.59"
+              ],
+              [
+                "right",
+                "3.59",
+                "3.97"
+              ]
+            ],
+            "confidence": 0.918,
+            "transcript": "front right "
+          }
+        ],
+        "final": true
+      },
+      {
+        "word_alternatives": [
+          {
+            "start_time": 4.83,
+            "alternatives": [
+              {
+                "confidence": 0.9565,
+                "word": "side"
+              }
+            ],
+            "end_time": 5.22
+          }
+        ],
+        "alternatives": [
+          {
+            "timestamps": [
+              [
+                "side",
+                "4.83",
+                "5.22"
+              ],
+              [
+                "right",
+                "5.22",
+                "5.63"
+              ]
+            ],
+            "confidence": 0.936,
+            "transcript": "side right "
+          }
+        ],
+        "final": true
+      },
+      {
+        "word_alternatives": [],
+        "alternatives": [
+          {
+            "timestamps": [
+              [
+                "back",
+                "6.7",
+                "7.01"
+              ],
+              [
+                "right",
+                "7.04",
+                "7.46"
+              ]
+            ],
+            "confidence": 0.911,
+            "transcript": "back right "
+          }
+        ],
+        "final": true
+      },
+      {
+        "word_alternatives": [],
+        "alternatives": [
+          {
+            "timestamps": [
+              [
+                "back",
+                "8.77",
+                "9.08"
+              ],
+              [
+                "left",
+                "9.08",
+                "9.51"
+              ]
+            ],
+            "confidence": 0.817,
+            "transcript": "back left "
+          }
+        ],
+        "final": true
+      },
+      {
+        "word_alternatives": [],
+        "alternatives": [
+          {
+            "timestamps": [
+              [
+                "side",
+                "10.47",
+                "10.89"
+              ],
+              [
+                "left",
+                "10.89",
+                "11.34"
+              ]
+            ],
+            "confidence": 0.914,
+            "transcript": "side left "
+          }
+        ],
+        "final": true
+      }
+    ],
+    "result_index": 0
+  }
